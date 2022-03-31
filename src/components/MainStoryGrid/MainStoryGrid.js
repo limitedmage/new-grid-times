@@ -8,6 +8,7 @@ import MainStory from "../MainStory";
 import SecondaryStory from "../SecondaryStory";
 import OpinionStory from "../OpinionStory";
 import Advertisement from "../Advertisement";
+import { QUERIES } from "../../constants";
 
 const MainStoryGrid = () => {
   return (
@@ -28,13 +29,13 @@ const MainStoryGrid = () => {
 
       <OpinionSection>
         <SectionTitle>Opinion</SectionTitle>
-        <StoryList>
+        <OpinionStoryList>
           {OPINION_STORIES.map((story, index) => (
-            <StoryItem key={story.id}>
+            <OpinionStoryItem key={story.id}>
               <OpinionStory key={story.id} {...story} />
-            </StoryItem>
+            </OpinionStoryItem>
           ))}
-        </StoryList>
+        </OpinionStoryList>
       </OpinionSection>
 
       <AdvertisementSection>
@@ -73,6 +74,24 @@ const StoryItem = styled.div`
     padding-bottom: 16px;
     border-bottom: 1px solid var(--color-gray-300);
     margin-bottom: 16px;
+  }
+`;
+
+const OpinionStoryList = styled(StoryList)`
+  @media ${QUERIES.tabletOnly} {
+    flex-direction: row;
+    gap: 32px;
+  }
+`;
+
+const OpinionStoryItem = styled(StoryItem)`
+  flex: 1;
+  @media ${QUERIES.tabletOnly} {
+    &:not(:last-of-type) {
+      border-bottom: 0;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
   }
 `;
 
