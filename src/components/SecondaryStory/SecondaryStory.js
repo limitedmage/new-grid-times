@@ -24,6 +24,7 @@ const Wrapper = styled.article`
   color: var(--color-gray-900);
 
   @media ${QUERIES.tabletOnly} {
+    gap: 0;
     grid-template-columns: 1fr;
     grid-template-areas:
       "image"
@@ -39,6 +40,10 @@ const Image = styled.img`
   height: 120px;
   border-radius: 4px;
   object-fit: cover;
+
+  @media ${QUERIES.tabletOnly} {
+    margin-bottom: 16px;
+  }
 `;
 
 const Heading = styled.h2`
