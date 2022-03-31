@@ -46,9 +46,6 @@ const MainStoryGrid = () => {
 };
 
 const Wrapper = styled.div`
-  --breathing-room: 16px;
-  --divider: 1px solid var(--color-gray-300);
-
   display: grid;
   grid-template-areas:
     "main-story"
