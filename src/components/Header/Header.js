@@ -39,10 +39,10 @@ const Header = () => {
         </DesktopActionGroup>
         <Logo />
         <DesktopSubscribe>
-          <Center>
-            <Button>Subscribe</Button>
-            <AlreadySubscribedLink>Already a subscriber?</AlreadySubscribedLink>
-          </Center>
+          <Button>Subscribe</Button>
+          <AlreadySubscribedLink href="/">
+            Already a subscriber?
+          </AlreadySubscribedLink>
         </DesktopSubscribe>
       </MainHeader>
     </header>
@@ -92,19 +92,35 @@ const MainHeader = styled(MaxWidthWrapper)`
   justify-content: center;
   margin-top: 32px;
   margin-bottom: 48px;
+
+  @media ${QUERIES.tabletAndUp} {
+    margin-top: 48px;
+    margin-bottom: 72px;
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+  }
 `;
 
-const DesktopSubscribe = styled(DesktopActionGroup)`
-  justify-content: flex-end;
-`;
+const DesktopSubscribe = styled.div`
+  display: none;
+  flex: 1;
+  justify-self: flex-end;
+  position: relative;
 
-const Center = styled.div`
-  text-align: center;
+  @media ${QUERIES.laptopAndUp} {
+    display: revert;
+  }
 `;
 
 const AlreadySubscribedLink = styled.a`
-  display: block;
+  position: absolute;
   margin-top: 8px;
+  width: 100%;
+  text-align: center;
   color: var(--color-gray-900);
   font-style: italic;
   text-decoration: underline;
